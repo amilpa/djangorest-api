@@ -41,7 +41,7 @@ def additem(request):
 
 @api_view(['GET'])
 def getitem(request , pk):
-    item = WorkerManagement.objects.get(id = pk)
+    item = WorkerManagement.objects.get(customeremail = pk)
     serializer = DatabaseFormat(item , many=False)
     return Response(serializer.data)
 
@@ -49,7 +49,7 @@ def getitem(request , pk):
 def updateitem(request , pk):
     data = request.data
 
-    item = WorkerManagement.objects.get(id = pk)
+    item = WorkerManagement.objects.get(customeremail = pk)
     serializer = DatabaseFormat(item , data = request.POST)
     if serializer.is_valid():
         serializer.save()
@@ -58,7 +58,7 @@ def updateitem(request , pk):
 @api_view(['DELETE'])
 def deleteitem(request , pk):
 
-    item = WorkerManagement.objects.get(id = pk)
+    item = WorkerManagement.objects.get(customeremail = pk)
     item.delete()
     return Response("Note is deleted")
 
