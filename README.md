@@ -1,6 +1,6 @@
 # Cleanzo-back-end
 
 
-backend by anish and amilpa
+backend api using django rest framework with user authentication and database management
 <br>
 
